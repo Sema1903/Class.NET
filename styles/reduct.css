@@ -1,0 +1,251 @@
+@media screen and (max-width: 800px) {
+    button{
+        color: black;
+    }
+    body{
+        background-color: rgb(76, 102, 97);
+    }
+    #back_button{
+        background-color: rgb(164, 163, 163);
+        transition: 0.5s;
+        position: fixed;
+        border-radius: 200px;
+        border: 0px;
+        top: 90%;
+        z-index: 10;
+        font-size: 17px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+        margin-left: 20px;
+    }
+    #back_button:hover{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+    }
+    #registration_div{
+        margin-top: 50px;
+        border-radius: 20px;;
+        border: 0px;
+        background-color: rgb(139, 138, 139);
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 40px;
+    }
+    #h2{
+        font-family: 'Montserrat', serif;
+    }
+    #name{
+        border: 0px;
+        border-radius: 100px;
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        padding: 10px;
+        font-size: 20px;
+        color: aliceblue;
+        font-family: 'Montserrat', serif;
+    }
+    #name::placeholder{
+        color: rgb(163, 163, 163);
+        font-family: 'Montserrat', serif;
+    }
+    #name:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+    }
+    #registration_button{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        border-radius: 200px;
+        border: 0px;
+        font-size: 20px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+    }
+    #registration_button:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+        color: aliceblue;
+    }
+    #name_label{
+        font-family: "Montserrat", serif;
+        font-size: 20px;
+    }
+    #avatar{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        width: 100%;
+        border: 0px;
+        border-radius: 100px;
+        padding: 10px;
+        font-size: 20px;
+        font-family: 'Montserrat', serif;
+    }
+    #avatar:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+    }
+    #avatar_label{
+        font-family: "Montserrat", serif;
+        font-size: 20px;
+    }
+    #about_label{
+        font-family: "Montserrat", serif;
+        font-size: 20px;
+    }
+    #about{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        color: aliceblue;
+        border: 0px;
+        border-radius: 100px;
+        padding: 10px;
+        font-size: 20px;
+        font-family: 'Montserrat', serif;
+    }
+    #about:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+    }
+    #money{
+        background-color: rgba(54, 54, 54, 0.457);
+        border-radius: 10px;
+        position: fixed;
+        padding: 2.5%;
+        right: 5%;
+        left: 5%;
+        top: 40%;
+        font-size: 20px;
+        display: none;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
+    #p{
+        font-size: 20px;
+        color: black;
+        font-family: 'Montserrat', serif;
+    }
+}
+@media screen and (min-width: 800px) {
+    body{
+        background-color: rgb(76, 102, 97);
+    }
+    #back_button{
+        background-color: rgb(164, 163, 163);
+        transition: 0.5s;
+        border-radius: 200px;
+        border: 0px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+        margin-left: 20px;
+        font-size: 17px;
+    }
+    #back_button:hover{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+    }
+    #registration_div{
+        margin-top: 50px;
+        border-radius: 20px;
+        border: 0px;
+        background-color: rgb(139, 138, 139);
+        padding-left: 40px;
+        padding-top: 20px;
+        margin-left: 350px;
+        margin-right: 350px;
+        padding-bottom: 40px;
+    }
+    #h2{
+        font-family: 'Montserrat', serif;
+    }
+    #name{
+        border: 0px;
+        border-radius: 100px;
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        padding: 10px;
+        font-size: 17px;
+        color: aliceblue;
+        font-family: 'Montserrat', serif;
+    }
+    #name::placeholder{
+        color: rgb(163, 163, 163);
+        font-family: 'Montserrat', serif;
+    }
+    #name:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+    }
+    #registration_button{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        border-radius: 200px;
+        border: 0px;
+        font-size: 17px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+    }
+    #registration_button:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+        color: aliceblue;
+    }
+    #name_label{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    #avatar{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        border: 0px;
+        border-radius: 100px;
+        padding: 10px;
+        font-size: 17px;
+        font-family: 'Montserrat', serif;
+    }
+    #avatar:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+    }
+    #avatar_label{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    #about_label{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    #about{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+        color: aliceblue;
+        border: 0px;
+        border-radius: 100px;
+        padding: 10px;
+        font-size: 17px;
+        font-family: 'Montserrat', serif;
+    }
+    #about:hover{
+        background-color: rgb(61, 61, 61);
+        transition: 0.5s;
+    }
+    #money{
+        background-color: rgba(54, 54, 54, 0.457);
+        border-radius: 10px;
+        position: fixed;
+        padding: 2.5%;
+        right: 30%;
+        left: 30%;
+        top: 50%;
+        display: none;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
+    #p{
+        font-size: 17px;
+        color: black;
+        font-family: 'Montserrat', serif;
+    }
+}

@@ -1,0 +1,388 @@
+@media screen and (max-width: 700px) {
+    button{
+        color: black;
+    }
+    body{
+        background-color: rgb(76, 102, 97);
+    }
+    #main_div{
+        margin-top: 50px;
+        border-radius: 20px;;
+        border: 0px;
+        background-color: rgb(139, 138, 139);
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 10px;
+        font-size: 20px;
+        font-family: "Montserrat", serif;
+    }
+    #back_button{
+        background-color: rgb(164, 163, 163);
+        transition: 0.5s;
+        position: fixed;
+        border-radius: 200px;
+        border: 0px;
+        top: 90%;
+        z-index: 10;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+        margin-left: 20px;
+    }
+    #back_button:hover{
+        background-color: rgb(134, 134, 134);
+        transition: 0.5s;
+    }
+    p{
+        font-size: 17px;
+        font-family: "Montserrat", serif;
+        color: black;
+    }
+    #avatar{
+        width:80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .nft_img{
+        width:100px;
+        height: 100px;
+        object-fit: cover;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+    h2{
+        font-family: "Montserrat", serif;
+    }
+    #main{
+        margin-bottom: 30%;
+    }
+    .avatar{
+        width:75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1%;
+    }
+    .file{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .text_p{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    .autor_h3{
+        font-family: "Montserrat", serif;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    .main_div{
+        position: relative;
+        border-radius: 20px;
+        border: 0px;
+        background-color: rgb(139, 138, 139);
+        padding-left: 20px;
+        padding-top: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-bottom: 40px;
+        padding-right: 20px;
+        margin-top: 5%;
+    }
+    #nfts{
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+    }
+    #popup{
+        border-radius: 20px;
+        border: 0px;
+        top: 10%;
+        left: 5%;
+        right: 5%;
+        position: fixed;
+        background-color: rgba(63, 63, 63, 0.5);
+        padding-left: 40px;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-family: "Montserrat", serif;
+        display: none;
+    }
+    #nft_img{
+        width:200px;
+        height: 200px;
+        object-fit: cover;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    button{
+        background-color: rgb(255, 109, 243);
+        transition: 0.5s;
+        border-radius: 200px;
+        font-size: 17px;
+        border: 0px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+        margin-left: 20px;
+    }
+    button:hover{
+        transition: 0.5s;
+        background-color: rgb(255, 78, 246);
+    }
+    .dopest{
+        width:300px;
+        height: 300px;
+        border-radius: 50%;
+        position:absolute;
+        background-color: rgba(255, 255, 255, 0);
+        top: 0px;
+        z-index: 2;
+    }
+    .dop_div{
+        width:300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(255, 255, 255, 0);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    #friends{
+        margin-left: 5%;
+        margin-right: 5%;
+        z-index: 2;
+        text-align: center;
+        display: flexbox;
+        position: relative;
+        border-radius: 30px;
+        background-color: gray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .friend{
+        width: 40%;
+        margin-left: 10px;
+        margin-right: 10px;
+        top: 0;
+        height: 1%;
+        display:inline-block;
+        padding-top: 10px;
+        border-radius: 20px;
+        transition: 0.5s;
+    }
+    .friend:hover{
+        transition: 0.5s;
+        background-color: darkgray;
+    }
+    #favatar{
+        width:75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1%;
+    }
+}
+@media screen and (min-width: 700px) {
+    body{
+        background-color: rgb(76, 102, 97);
+    }
+    #main_div{
+        margin-top: 50px;
+        border-radius: 20px;;
+        border: 0px;
+        background-color: rgb(139, 138, 139);
+        padding-left: 40px;
+        padding-top: 20px;
+        margin-left: 400px;
+        margin-right: 400px;
+        padding-bottom: 40px;
+        font-family: "Montserrat", serif;
+    }
+    #back_button{
+        background-color: rgb(164, 163, 163);
+        transition: 0.5s;
+        position: fixed;
+        border-radius: 200px;
+        border: 0px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+        margin-left: 20px;
+    }
+    #back_button:hover{
+        background-color: rgb(134, 134, 134);
+        transition: 0.5s;
+    }
+    p{
+        font-size: 17px;
+        font-family: "Montserrat", serif;
+        color: black;
+    }
+    #avatar{
+        width:75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .nft_img{
+        width:150px;
+        height: 150px;
+        object-fit: cover;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+    h2{
+        font-family: "Montserrat", serif;
+    }
+    #main{
+        margin-bottom: 30%;
+    }
+    .avatar{
+        width:75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1%;
+    }
+    .file{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+    .text_p{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    .autor_h3{
+        font-family: "Montserrat", serif;
+        margin-right: auto;
+    }
+    .main_div{
+        position: relative;
+        border-radius: 20px;
+        border: 0px;
+        background-color: rgb(139, 138, 139);
+        padding-left: 40px;
+        padding-top: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-bottom: 40px;
+        padding-right: 40px;
+        margin-top: 5%;
+    }
+    #nfts{
+        margin-left: 20%;
+        margin-right: 20%;
+        position: relative;
+    }
+    #popup{
+        border-radius: 20px;
+        border: 0px;
+        top: 10%;
+        left: 30%;
+        right: 30%;
+        position: fixed;
+        background-color: rgba(63, 63, 63, 0.5);
+        padding-left: 40px;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-family: "Montserrat", serif;
+        display: none;
+    }
+    #nft_img{
+        width:200px;
+        height: 200px;
+        object-fit: cover;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    button{
+        background-color: rgb(255, 109, 243);
+        transition: 0.5s;
+        border-radius: 200px;
+        font-size: 17px;
+        border: 0px;
+        padding: 15px;
+        font-family: "Montserrat", serif;
+        margin-left: 20px;
+    }
+    button:hover{
+        transition: 0.5s;
+        background-color: rgb(255, 78, 246);
+    }
+    .dopest{
+        width:200px;
+        height: 200px;
+        border-radius: 50%;
+        position:absolute;
+        background-color: rgba(255, 255, 255, 0);
+        top: 0px;
+        z-index: 2;
+    }
+    .dop_div{
+        width:300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(255, 255, 255, 0);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    #friends{
+        margin-left: 20%;
+        margin-right: 20%;
+        z-index: 2;
+        text-align: center;
+        position: relative;
+        border-radius: 30px;
+        background-color: gray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .friend{
+        width: 15%;
+        margin-left: 40px;
+        top: 0;
+        height: 1%;
+        display:inline-block;
+        padding-top: 10px;
+        border-radius: 20px;
+        transition: 0.5s;
+    }
+    .friend:hover{
+        transition: 0.5s;
+        background-color: darkgray;
+    }
+    #favatar{
+        width:75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1%;
+    }
+}

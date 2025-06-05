@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = 'ru'>
+    <head>
+        <title>Аккаунт</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset = 'utf-8'>
+        <link rel = 'stylesheet' href = 'styles/account.css'>
+        <link rel = 'icon' href = 'images/2.jpeg'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <button id = 'back_button'>Назад</button>
+        <div id = 'main_div'>
+            <h1>Профиль</h1>
+            <img id = 'avatar'>
+            <p id = 'name_p'>Имя:</p>
+            <p id = 'about_p'>Обо мне:</p>
+            <p id = 'id_p'>ID:</p>
+            <p id = 'balance'>Баланс: </p>
+            <button id = 'write_button'>Написать</button>
+            <button id = 'friend_button'>Добавить в друзья</button>
+            <button id = 'bans_button'>Пожаловаться</button>
+        </div>
+        <h2 align = 'center'>Друзья</h2>
+        <div id = friends>
+        </div>
+        <h2 align = 'center'>NFT</h2>
+        <div id = 'nfts'>
+        </div>
+        <h2 align = 'center'>Публикации</h2>
+        <div id = main>
+        </div>
+        <div id = 'popupest'>
+        </div>
+        <script src = 'scripts/account.js'></script>
+    </body>
+</html>

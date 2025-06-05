@@ -1,0 +1,236 @@
+@media screen and (max-width: 800px) {
+    body{
+        background-color: rgb(76, 102, 97);
+    }
+    img{
+        width:100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    h1{
+        position: absolute;
+        top: 2%;
+        color: aliceblue;
+        left: 10%;
+        font-family: "Montserrat", serif;
+    }
+    button{
+        padding: 1%;
+        background-color: rgb(217, 0, 255);
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+        border-radius: 100px;
+        border: 0;
+        color: white;
+        transition: 0.5s;
+    }
+    button:hover{
+        background-color: deeppink;
+        transition: 0.5s;
+    }
+    p{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+        color: aliceblue;
+    }
+    label{
+        font-family: "Montserrat", serif;
+        font-size: 17px; 
+        color: aliceblue; 
+    }
+    input{
+        background-color: rgb(217, 0, 255);
+        transition: 0.5s;
+        padding: 1%;
+        color: white;
+        border-radius: 100px;
+        border: 0;
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    input::placeholder{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+        color: white;
+    }
+    input:hover{
+        transition: 0.5s;
+        background-color: deeppink;
+    }
+    .main_div{
+        position: relative;
+        border-radius: 20px;
+        border: 0px;
+        background-color: rgb(200, 200, 200);
+        padding-left: 1%;
+        width: 300px;
+        height: 200px;
+        padding-top: 1%;
+        margin-left: 5%;
+        display: inline-block;
+        padding-bottom: 1%;
+        padding-right: 1%;
+        margin-top: 5%;
+        transition: 0.5s;
+    }
+    .main_div:hover{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+    }
+    .nft_img{
+        width:100px;
+        height: 100px;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .dop{
+        width:70%;
+        height: 50%;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0);
+
+    }
+    #money{
+        background-color: rgb(123, 123, 123);
+        border-radius: 20px;
+        position: fixed;
+        padding: 2.5%;
+        right: 30%;
+        left: 30%;
+        top: 40%;
+        display: none;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
+    #p{
+        font-size: 17px;
+        color: black;
+    }
+    #muny{
+        font-size: 17px;
+        padding: 2.5%;
+    }
+    #submit{
+        padding: 2.5%;
+    }
+}
+@media screen and (min-width: 800px) {
+    body{
+        background-color: rgb(76, 102, 97);
+    }
+    img{
+        width:100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    h1{
+        position: absolute;
+        top: 2%;
+        color: aliceblue;
+        left: 10%;
+        font-family: "Montserrat", serif;
+    }
+    button{
+        padding: 1%;
+        background-color: rgb(217, 0, 255);
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+        border-radius: 100px;
+        border: 0;
+        color: white;
+        transition: 0.5s;
+    }
+    button:hover{
+        background-color: deeppink;
+        transition: 0.5s;
+    }
+    p{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+        color: aliceblue;
+    }
+    label{
+        font-family: "Montserrat", serif;
+        font-size: 17px; 
+        color: aliceblue; 
+    }
+    input{
+        background-color: rgb(217, 0, 255);
+        transition: 0.5s;
+        padding: 1%;
+        color: white;
+        border-radius: 100px;
+        border: 0;
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+    }
+    input::placeholder{
+        font-family: "Montserrat", serif;
+        font-size: 17px;
+        color: white;
+    }
+    input:hover{
+        transition: 0.5s;
+        background-color: deeppink;
+    }
+    .main_div{
+        position: relative;
+        border-radius: 20px;
+        border: 0px;
+        background-color: rgb(200, 200, 200);
+        padding-left: 1%;
+        width: 300px;
+        height: 200px;
+        padding-top: 1%;
+        margin-left: 5%;
+        display: inline-block;
+        padding-bottom: 1%;
+        padding-right: 1%;
+        margin-top: 5%;
+        transition: 0.5s;
+    }
+    .main_div:hover{
+        background-color: rgb(99, 99, 99);
+        transition: 0.5s;
+    }
+    .nft_img{
+        width:100px;
+        height: 100px;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .dop{
+        width:70%;
+        height: 50%;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0);
+
+    }
+    #money{
+        background-color: rgb(123, 123, 123);
+        border-radius: 20px;
+        position: fixed;
+        padding: 2.5%;
+        right: 30%;
+        left: 30%;
+        top: 40%;
+        display: none;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
+    #p{
+        font-size: 17px;
+        color: black;
+    }
+    #muny{
+        font-size: 17px;
+        padding: 2.5%;
+    }
+    #submit{
+        padding: 2.5%;
+    }
+}
