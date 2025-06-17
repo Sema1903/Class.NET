@@ -197,6 +197,45 @@
     p{
         color: white;   
     }
+    #people_div{
+        background-color: rgba(54, 54, 54, 0.457);
+        border-radius: 10px;
+        position: fixed;
+        padding: 2.5%;
+        padding-bottom: 5%;
+        padding-top: 5%;
+        right: 5%;
+        display: flexbox;
+        left: 5%;
+        top: 40%;
+        font-size: 20px;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
+    .man_div{
+        background-color: gray;
+        padding:1%;
+        width: 100%;
+        display: flex;
+        position: relative;
+        transition: 0.5s;
+    }
+    .man_div:hover{
+        transitoion: 0.5s;
+        background-color: darkgray;
+    }
+    .man_avatar{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .man_name{
+        font-size: 17px;
+        margin-left: 5px;
+        color: black;
+        font-family: "Montserrat", serif;
+    }
 }
 @media screen and (min-width: 800px) {
     body{
@@ -367,5 +406,44 @@
     #surch_button:hover{
         background-color: deeppink;
         transition: 0.5s;
+    }
+    #people_div{
+        background-color: rgba(54, 54, 54, 0.457);
+        border-radius: 10px;
+        position: fixed;
+        padding: 2.5%;
+        padding-bottom: 5%;
+        padding-top: 5%;
+        right: 30%;
+        display: flexbox;
+        left: 30%;
+        top: 40%;
+        font-size: 20px;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
+    .man_div{
+        background-color: gray;
+        padding:1%;
+        width: 100%;
+        display: flex;
+        position: relative;
+        transition: 0.5s;
+    }
+    .man_div:hover{
+        transitoion: 0.5s;
+        background-color: darkgray;
+    }
+    .man_avatar{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .man_name{
+        font-size: 17px;
+        margin-left: 5px;
+        color: black;
+        font-family: "Montserrat", serif;
     }
 }

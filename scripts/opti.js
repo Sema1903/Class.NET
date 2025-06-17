@@ -1,4 +1,6 @@
 let name_p = document.getElementById('name_p');
+let big_div = document.getElementById('big_div');
+let main_div2 = document.getElementById('main_div');
 let email = document.getElementById('email');
 let back_button = document.getElementById('back_button');
 let buy_button = document.getElementById('buy_button');
@@ -10,6 +12,8 @@ let balance = document.getElementById('balance');
 let nfts = document.getElementById('nfts');
 let friends = document.getElementById('friends');
 let publicate_button = document.getElementById('publicate_button');
+let friends_h2 = document.getElementById('friends_h2');
+let nft_h2 = document.getElementById('nft_h2');
 function w(){
     money.style.display = 'none';
     location.reload(true);
@@ -20,7 +24,7 @@ function q(text){
     p.textContent = text;
     money.appendChild(p);
     money.style.display = 'block';
-    setTimeout(w, 5000);
+    setTimeout(w, 2500);
 }
 let money = document.getElementById('money');
 let reduct_button = document.getElementById('reduct_button');
@@ -40,20 +44,33 @@ fetch(url, {headers: {'Accept': 'application/json'}})
         else{
             about_p.textContent = 'Обо мне: Привет всем! Я использую Class.NET!'
         }
-        balance.textContent = 'Баланс: 0 ICE';
+        let ava = '';
         if(data['avatar'] != ''){
             avatar.src = data['avatar'];
+            ava = data['avatar'];
         }else{
             avatar.src = 'images/unknown.png'; 
-        }})
+            ava = 'images/unknown.png';
+        }
+        avatar.addEventListener('click', () => {
+            let big_avatar = document.createElement('img');
+            big_avatar.className = 'big_file';
+            big_avatar.src = ava;
+            big_div.appendChild(big_avatar);
+            big_div.style.display = 'block';
+            big_div.addEventListener('click', () => {
+                big_avatar.style.display = 'none';
+                big_div.style.display = 'none';
+            })
+        })
+    })
 url = new URL('http://sema1903.ru/main/iceberg.php');
 params = {hash: localStorage.getItem('hash')};
 url.search = new URLSearchParams(params)
 fetch(url, {headers: {'Accept': 'application/json'}})
         .then(response => {return response.json()})
         .then(data =>{
-            console.log(data);
-            balance.textContent = 'Баланс: ' + data['balance'] + ' ICE';
+            balance.textContent = 'Баланс: ' + data['balance'] + ' 👏';
         })
 url = new URL('http://sema1903.ru/main/my_friends.php');
 url.search = new URLSearchParams(params);
@@ -130,12 +147,22 @@ fetch(url1, {headers: {'Accept': 'application/json'}})
                 main_div.appendChild(head_div);
                 main_div.appendChild(text_p);
                 main.appendChild(main_div);
-                if (file_name != 'no' && data['type'] == 'image'){
+                if (file_name != 'no' && data[i]['type'] == 'image'){
                     let file = document.createElement('img');
                     file.src = file_name;
                     file.className = 'file';
                     main_div.appendChild(file);
-                }else if(file_name != 'no' && data['type'] == 'video'){
+                    file.addEventListener('click', () => {
+                        file.className = 'big_file';
+                        big_div.appendChild(file);
+                        big_div.style.display = 'block';
+                        big_div.addEventListener('click', () => {
+                            file.className = 'file';
+                            main_div.appendChild(file);
+                            big_div.style.display = 'none';
+                        })
+                    })
+                }else if(file_name != 'no' && data[i]['type'] == 'video'){
                     let file = document.createElement('video');
                     file.src = file_name;
                     file.className = 'file';
@@ -144,14 +171,24 @@ fetch(url1, {headers: {'Accept': 'application/json'}})
                     file.muted = true;
                     file.loop = true;
                     main_div.appendChild(file);
-                }else if(file_name != 'no' && data['type'] == 'audio'){
+                    file.addEventListener('click', () => {
+                        file.className = 'big_file';
+                        big_div.appendChild(file);
+                        big_div.style.display = 'block';
+                        big_div.addEventListener('click', () => {
+                            file.className = 'file';
+                            main_div.appendChild(file);
+                            big_div.style.display = 'none';
+                        })
+                    })
+                }else if(file_name != 'no' && data[i]['type'] == 'audio'){
                     let file = document.createElement('audio');
                     file.src = file_name;
                     file.controls = true;
                     file.loop = true;
                     file.muted = false;
                     main_div.appendChild(file);
-                }else if(file_name != 'no' && data['type'] == 'download'){
+                }else if(file_name != 'no' && data[i]['type'] == 'download'){
                     let file = document.createElement('a');
                     file.href = file_name;
                     file.textContent = 'Скачать файл';
@@ -209,13 +246,10 @@ fetch(url2, {headers: {'Accept': 'application/json'}})
                 popup.style.display = 'none';
             });
             sale_button.addEventListener('click', ()=>{
-
-                q('Эта функция пока недоступна,но скоро она появится))');
-
-/*                let muny = document.createElement('input');
+                let muny = document.createElement('input');
                 let p = document.createElement('p');
                 let submit = document.createElement('button');
-                p.textContent = 'За сколько ICE хочешь продать?';
+                p.textContent = 'За сколько 👏 хочешь продать?';
                 muny.placeholder = 'Введи сумму';
                 p.id = 'p';
                 submit.textContent = 'Выставить на продажу';
@@ -227,18 +261,21 @@ fetch(url2, {headers: {'Accept': 'application/json'}})
                 money.style.display = 'block';
                 money.addEventListener('dblclick', ()=>{
                     money.style.display = 'none';
+                    submit.style.display = 'none';
+                    muny.style.display = 'none';
+                    p.style.display = 'none';
                 })
                 submit.addEventListener('click', ()=>{
-                    fetch('http://127.0.0.1:80/buy_nft.php', {
+                    fetch('http://sema1903.ru/main/buy_nft.php', {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({'hash': localStorage.getItem('hash'), 'how': muny.value, 'ip': data[i]['ip'], 'nft': data[i]['nft']})
+                        body: JSON.stringify({'hash': localStorage.getItem('hash'), 'how': muny.value, 'token': data[i]['ip']})
                     })
                         .then(res => res.json())
                         .then(data => {
                             q('Выслевлено на продажу');
                         })
-                })*/
+                })
             })
             gift_button.addEventListener('click', ()=>{
                 let muny = document.createElement('input');
@@ -255,26 +292,25 @@ fetch(url2, {headers: {'Accept': 'application/json'}})
                 money.appendChild(submit);
                 money.addEventListener('dblclick', ()=>{
                     money.style.display = 'none';
+                    submit.style.display = 'none';
+                    muny.style.display = 'none';
+                    p.style.display = 'none';
                 });
                 money.style.display = 'block';
                 submit.addEventListener('click', ()=>{
-
-                    q('Эта йункция пока ндоступна, но она скоро появится. Ждите)))');
-
-
-/*                    fetch('http://127.0.0.1:80/gift.php', {
+                    fetch('http://sema1903.ru/main/gift.php', {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({'number': data[i]['ip'], 'adress': muny.value, 'hash': localStorage.getItem('hash')})
+                        body: JSON.stringify({'token': data[i]['ip'], 'adress': muny.value, 'hash': localStorage.getItem('hash')})
                     })
                         .then(res => res.json())
                         .then(data => {
                             if(data['answer'] == 'no'){
                                 q("Неверный IP");
                             }else{
-                                q('Подарко подарен');
+                                q('Подарoк подарен');
                             }
-                        });*/
+                        });
             })})
             dopest.style.left = String((i % 4)*190) + 'px';
             dopest.style.top = String(Math.trunc((i) / 4) * 180) + 'px';
@@ -285,14 +321,7 @@ fetch(url2, {headers: {'Accept': 'application/json'}})
         }
     });
 gift_ice.addEventListener('click', ()=>{
-    
-    
-    
-    q('Эта функция пока недоступна но скоро она появится');
-
-
-
-/*    let muny = document.createElement('input');
+    let muny = document.createElement('input');
     let p = document.createElement('p');
     let submit = document.createElement('button');
     p.textContent = 'Введи данные перевода';
@@ -309,14 +338,20 @@ gift_ice.addEventListener('click', ()=>{
     money.appendChild(adress);
     money.appendChild(submit);
     money.addEventListener('dblclick', ()=>{
+        submit.style.display = 'none';
+        p.style.display = 'none';
         money.style.display = 'none';
+        adress.style.display = 'none';
+        muny.style.display = 'none';
     })
     money.style.display = 'block';
     submit.addEventListener('click', ()=>{
         if(Number(muny.value) > Number(balance.textContent.split(' ')[1])){
             q('Недостаточно средств');
+        }else if(!Number.isInteger(Number(muny.value)) || Number(muny.value) <= 0){
+            q('Некоректный ввод');
         }else{
-            fetch('http://127.0.0.1:5000/gift_ice', {
+            fetch('http://sema1903.ru/main/gift_ice.php', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({'id_seller': localStorage.getItem('hash'), 'how': muny.value, 'id_giver': adress.value})
@@ -329,8 +364,22 @@ gift_ice.addEventListener('click', ()=>{
                         q('Перевод прошел успешно');
                     }})
     }
-})*/
+})
 });
 publicate_button.addEventListener('click', ()=>{
     window.location.href = 'publicate.html';
-})
+});
+friends_h2.addEventListener('click', () => {
+    if(friends.style.display != 'block'){
+        friends.style.display = 'block';
+    }else{
+        friends.style.display = 'none';
+    }
+});
+nft_h2.addEventListener('click', () =>{
+    if(nfts.style.display != 'block'){
+        nfts.style.display = 'block';
+    }else{
+        nfts.style.display = 'none';
+    }
+});

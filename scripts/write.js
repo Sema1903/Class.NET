@@ -1,4 +1,5 @@
 let avatar = document.getElementById('avatar_img');
+let big_div = document.getElementById('big_div');
 let name1 = document.getElementById('name');
 let back_button = document.getElementById('back_button');
 let write_input = document.getElementById('write_input');
@@ -45,6 +46,17 @@ function write(){
                         file_img.className = 'file_img'
                         file_img.src = data['messages'][i]['file'];
                         main_div.appendChild(file_img);
+                        file.addEventListener('click', () => {
+                            file.className = 'big_file';
+                            big_div.appendChild(file);
+                            big_div.style.display = 'block';
+                            big_div.addEventListener('click', () => {
+                                file.className = 'file';
+                                main_div.appendChild(file);
+                                big_div.style.display = 'none';
+                            })
+                        })
+                        
                     }
                     if(data['messages'][i]['file'] != 'no' && data['messages'][i]['type'] == 'video'){
                         let file_video = document.createElement('video');
@@ -55,6 +67,16 @@ function write(){
                         file_video.muted = true;
                         file_video.loop = true;
                         main_div.appendChild(file_video);
+                        file.addEventListener('click', () => {
+                            file.className = 'big_file';
+                            big_div.appendChild(file);
+                            big_div.style.display = 'block';
+                            big_div.addEventListener('click', () => {
+                                file.className = 'file';
+                                main_div.appendChild(file);
+                                big_div.style.display = 'none';
+                            })
+                        })
                     }
                     if(data['messages'][i]['file'] != 'no' && data['messages'][i]['type'] == 'audio'){
                         let file_audio = document.createElement('audio');

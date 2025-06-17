@@ -1,25 +1,12 @@
 let balance = document.getElementById('balance');
-let buy = document.getElementById('buy');
-let how = document.getElementById('how');
-let sum = document.getElementById('sum');
 let number = document.getElementById('number');
 let params = {hash: localStorage.getItem('hash')};
 let back_button = document.getElementById('back_button');
 let main = document.getElementById('main');
-let url = new URL('http://127.0.0.1:5000/iceberg');
+let file_input = document.getElementById('nft');
+let url = new URL('http://sema1903.ru/main/iceberg.php');
 let momey = document.getElementById('money');
 let bal = 0;
-function create_token(token){
-    let token1 = 0;
-    for(let i = 0; i < token.length; i++){
-        token1 += token.charCodeAt(i);
-    }
-    token1 += 10
-    token1 *= token1;
-    token1 *= token1;
-    token1 *= token1;
-    return token1;
-}
 url.search = new URLSearchParams(params);
 function w(){
     money.style.display = 'none';
@@ -31,7 +18,7 @@ function q(text){
     p.textContent = text;
     money.appendChild(p);
     money.style.display = 'block';
-    setTimeout(w, 1000);
+    setTimeout(w, 2500);
 }
 let sum_nft = document.getElementById('sum_nft');
 let f = 'no';
@@ -45,34 +32,31 @@ url.search = new URLSearchParams(params);
 fetch(url, {headers: {'Accept': 'application/json'}})
     .then(response =>{return response.json()})
     .then(data => {
-        balance.textContent = 'Баланс: ' + data['balance'] + ' ICE';
+        balance.textContent = 'Баланс: ' + data['balance'] + ' 👏';
     });
-buy.addEventListener('click', ()=>{
-    fetch('http://127.0.0.1:5000/mint', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({'owner': localStorage.getItem('hash'), 'token_id': Math.random() * (10^1000000000), 'metadata': {'how': how.value, 'sum': sum.value, 'number': number.value, 'nft': '', 'status': 'sale', 'creator': localStorage.getItem('hash')}})
-    })
-        .then(res => res.json())
-        .then(data => {
-            q('Выставлено на продажу');
-        });
-});
 back_button.addEventListener('click', ()=>{
     window.location.href = localStorage.getItem('action') + '.html';
 });
 nft_button.addEventListener('click', ()=>{
-    fetch('http://127.0.0.1:5000/mint', {
-        method: 'POST', 
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({'owner': localStorage.getItem('hash'), 'token_id': Math.random() * (10^1000000000), 'metadata': {'how': sum_nft.value, 'sum': 0, 'number': number.value, 'nft': f, 'status': 'sale', 'creator': localStorage.getItem('hash')}})
-    })
-    .then(res => res.json())
-    .then(data => {
-        q('Выставленно на продажу!');
-    })
+    if(['png', 'jpeg', 'gif', 'raw', 'jpg', 'svg', 'tiff', 'bmp', 'psd'].includes(file_input.value.split('.')[file_input.value.split('.').length - 1])){
+        fetch('http://sema1903.ru/main/mint.php', {
+            method: 'POST', 
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({'owner': localStorage.getItem('hash'), 'metadata': {'how': sum_nft.value, 'nft': f, 'creator': localStorage.getItem('hash')}})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data['answer'] == 'yes'){
+                q('Выставленно на продажу!');
+            }else{
+                q('Что-то пошло не так');
+            }
+        })
+    }
 })
-fetch('http://127.0.0.1:5000/nfts', {headers: {'Accept': 'application/json'}})
+url = new URL('http://sema1903.ru/main/nfts.php');
+url.search = new URLSearchParams(params);
+fetch(url, {headers: {'Accept': 'application/json'}})
     .then(response =>{return response.json()})
     .then(data => {
         for(let i in data){
@@ -80,59 +64,46 @@ fetch('http://127.0.0.1:5000/nfts', {headers: {'Accept': 'application/json'}})
             main_div.className = 'main_div';
             let new_how = document.createElement('p');
             new_how.style.color = 'black';
-            if(data[i]['metadata']['nft'] == ''){
-                let new_sum = document.createElement('p');
-                new_sum.style.color = 'black';
-                new_how.textContent = data[i]['metadata']['how'] + ' ICE';
-                new_sum.textContent = 'За ' + data[i]['metadata']['sum'] + ' руб.';
-                main_div.appendChild(new_how);
-                main_div.appendChild(new_sum);
-            }else{
-                let new_img = document.createElement('img');
-                new_img.src = data[i]['metadata']['nft'];
-                new_img.className = 'nft_img';
-                let creator = document.createElement('p');
-                creator.textContent = 'Автор работы: ' + data[i]['metadata']['creator'];
-                creator.style.color = 'black';
-                let dop = document.createElement('div');
-                dop.className = 'dop';
-                new_how.textContent = 'За ' + data[i]['metadata']['how'] + ' ICE';
-                main_div.appendChild(creator);
-                main_div.appendChild(new_how);
-                main_div.appendChild(dop);
-                main_div.appendChild(new_img);
-            };
-            if(data[i]['metadata']['creator'] != 'friends2.0' && Number(data[i]['owner']) != localStorage.getItem('hash')){
-                main.appendChild(main_div);
-            }
+            let new_img = document.createElement('img');
+            new_img.src = data[i]['metadata']['nft'];
+            new_img.className = 'nft_img';
+            let creator = document.createElement('p');
+            creator.textContent = 'Автор работы: ' + data[i]['metadata']['creator'];
+            creator.style.color = 'black';
+            let dop = document.createElement('div');
+            dop.className = 'dop';
+            new_how.textContent = 'За ' + data[i]['metadata']['how'] + ' ICE';
+            main_div.appendChild(creator);
+            main_div.appendChild(new_how);
+            main_div.appendChild(dop);
+            main_div.appendChild(new_img);
+            main.appendChild(main_div);
             main_div.addEventListener('click', ()=>{
-                let muny = document.createElement('input');
-                let p = document.createElement('p');
                 let submit = document.createElement('button');
-                p.textContent = 'Введи номер карты ';
-                muny.placeholder = 'Номер карты';
-                p.id = 'p';
-                submit.textContent = 'Перевести';
-                muny.id = 'muny';
+                submit.textContent = 'Преобрести';
                 submit.id = 'submit';
-                money.appendChild(p);
-                money.appendChild(muny);
                 money.appendChild(submit);
                 money.style.display = 'block';
                 money.addEventListener('dblclick', ()=>{
                     money.style.display = 'none';
+                    submit.style.display = 'none';
                 })
                 submit.addEventListener('click', ()=>{
-                    fetch('http://127.0.0.1:5000/transfer', {
+                    fetch('http://sema1903.ru/main/transfer.php', {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({'receiver': localStorage.getItem('hash'), 'sender': data[i]['owner'], 'token_id': Number(i), 'how': Number(data[i]['metadata']['how']), 'nft': data[i]['metadata']['nft']})
+                        body: JSON.stringify({'giver': localStorage.getItem('hash'), 'seller': data[i]['owner'], 'token': Number(i), 'how': Number(data[i]['metadata']['how']), 'nft': data[i]['metadata']['nft']})
                     })
                         .then(res => res.json())
                         .then(data1 => {
-                            q('Покупка совершена');
+                            if(data1['answer'] == 'yes'){
+                                q('Покупка совершена');
+                            }else{
+                                q('Что-то пошло не так');
+                            }
                     })
                 })
             })
         }
-    })
+    }
+)

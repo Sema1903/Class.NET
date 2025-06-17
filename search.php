@@ -4,15 +4,12 @@
 	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 	$con = new SQLite3('exercises.db');
 	$here = false;
+	$result = [];
 	$records = $con -> query('SELECT * FROM users');
 	while($row = $records -> fetchArray(SQLITE3_ASSOC)){
-		if($row['id'] == $_GET['id']){
-			$here = true;
+		if($row['id'] == $_GET['id'] || in_array($_GET['id'], explode(' ', $row['name']))){
+		    array_push($result, ['id' => $row['id'], 'avatar' => $row['avatar'], 'name' => $row['name']]);
 		}
 	}
-	if($here == true){
-		echo json_encode(['answer' => 'yes']);
-	}else{
-		echo json_encode(['answer' => 'no']);
-	}
+	echo json_encode($result);
 ?>

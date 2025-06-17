@@ -3,6 +3,8 @@ let account_button = document.getElementById('account_button');
 let account_img = document.getElementById('account_img');
 let main = document.getElementById('main');
 let chat_button = document.getElementById('chat_button');
+let big_div = document.getElementById('big_div');
+let gif = document.getElementById('gif');
 let i = 0;
 if(localStorage.getItem('hash') != null){
     let params = {hash: localStorage.getItem('hash')};
@@ -69,6 +71,16 @@ function next_publication(i){
                     file.src = file_name;
                     file.className = 'file';
                     main_div.appendChild(file);
+                    file.addEventListener('click', () => {
+                        file.className = 'big_file';
+                        big_div.appendChild(file);
+                        big_div.style.display = 'block';
+                        big_div.addEventListener('click', () => {
+                            file.className = 'file';
+                            main_div.appendChild(file);
+                            big_div.style.display = 'none';
+                        })
+                    })
                 }else if(file_name != 'no' && data['type'] == 'video'){
                     let file = document.createElement('video');
                     file.src = file_name;
@@ -78,6 +90,16 @@ function next_publication(i){
                     file.muted = true;
                     file.loop = true;
                     main_div.appendChild(file);
+                    file.addEventListener('click', () => {
+                        file.className = 'big_file';
+                        big_div.appendChild(file);
+                        big_div.style.display = 'block';
+                        big_div.addEventListener('click', () => {
+                            file.className = 'file';
+                            main_div.appendChild(file);
+                            big_div.style.display = 'none';
+                        })
+                    })
                 }else if(file_name != 'no' && data['type'] == 'audio'){
                     let file = document.createElement('audio');
                     file.src = file_name;
@@ -112,5 +134,37 @@ account_button.addEventListener('click', ()=>{
         localStorage.setItem('action', 'chats');
         window.location.href = 'opti.html';
     }
-
+});
+gif.addEventListener('click', () => {
+    if(localStorage.getItem('hash') != null){
+        fetch('http://sema1903.ru/main/gif.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({'hash': localStorage.getItem('hash')})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data['answer'] == 'yes'){
+                let timer;
+                let turn = 0;
+                function turnOn() {
+                  timer = setInterval(turnFan, 200);
+                  let gif = document.getElementById("on");
+                  gif.disabled = true;
+                }
+                
+                function turnOff() {
+                  clearInterval(timer);
+                  let gif = document.getElementById("on");
+                  gif.disabled = false;
+                }
+                
+                function turnFan() {
+                  let gif = document.getElementById("myFan");
+                  turn += 60;
+                  gif.style.transform = "rotate("+ (turn % 360) +"deg)"
+                }
+            }
+        })
+    }
 })

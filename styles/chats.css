@@ -184,6 +184,22 @@
     #games_img{
         display: none;
     }
+    #big_div{
+        background-color: rgba(54, 54, 54, 0.9);
+        position: fixed;
+        display: none;
+        padding: 1%;
+        border-radius: 20px;
+        left: 5%;
+        right: 5%;
+        top: 5%;
+        z-index: 10000;
+        bottom: 5%;
+    }
+    .big_file{
+        margin-top: 35%;
+        width: 100%;
+    }
 }
 @media screen and (min-width: 800px) {
     body{  
@@ -349,5 +365,22 @@
         height: 110px;
         object-fit: cover;
         transition: 0.5s;
+    }
+    #big_div{
+        background-color: rgba(54, 54, 54, 0.9);
+        position: fixed;
+        display: none;
+        padding: 1%;
+        border-radius: 20px;
+        left: 5%;
+        right: 5%;
+        top: 5%;
+        z-index: 10000;
+        bottom: 5%;
+        overflow: hidden;
+    }
+    .big_file{
+        width: 50%;
+        margin-left: 25%;
     }
 }

@@ -11,29 +11,32 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id = 'h1_div'>
-            <img src = './images/2.jpeg', id = 'gif'>
-            <h1 id = 'h1'>Class.NET</h1>
-            <h2 id = 'h2'>Онлайн платформа для виртуального общения</h2>
+        <div id = 'mainest'>
+            <div id = 'h1_div'>
+                <img src = './images/2.jpeg' id = 'gif'>
+                <h1 id = 'h1'>Class.NET</h1>
+                <h2 id = 'h2'>Онлайн платформа для виртуального общения</h2>
+            </div>
+            <input placeholder = 'Введи ID или ник' id = 'surch_input'>
+            <button id = 'surch_button'>Найти</button>
+            <div id = main>
+            </div>
+            <div id = 'menu'>
+                <button id = 'chats_button'>
+                    <img src = 'images/chat.png' id = 'chat_img'>
+                    <p>Главная</p>
+                </button>
+                <button id = 'chat_button'>
+                    <img src = 'images/chats.png' id = 'chats_img'>
+                    <p>Чаты</p>
+                </button>
+                <button id = 'games_button'>
+                    <img src = 'images/games.png' id = 'games_img'>
+                    <p>Другое</p>
+                </button>
+            </div>
         </div>
-        <input placeholder = 'Введи ID друга' id = 'surch_input'>
-        <button id = 'surch_button'>Найти</button>
-        <div id = main>
-        </div>
-        <div id = 'menu'>
-            <button id = 'chats_button'>
-                <img src = 'images/chat.png' id = 'chat_img'>
-                <p>Главная</p>
-            </button>
-            <button id = 'chat_button'>
-                <img src = 'images/chats.png' id = 'chats_img'>
-                <p>Чаты</p>
-            </button>
-            <button id = 'games_button'>
-                <img src = 'images/games.png' id = 'games_img'>
-                <p>Iceberg</p>
-            </button>
-        </div>
+        <script src = 'srcipts/base122.js'></script>
         <script src = 'scripts/chat.js'></script>
     </body>
 </html>

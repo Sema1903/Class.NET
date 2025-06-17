@@ -24,6 +24,14 @@
 		$dop -> bindValue(':bans', 0, SQLITE3_INTEGER);
 		$dop -> bindValue(':status', 'active', SQLITE3_TEXT);
 		$dop -> execute();
+		$dop = $con -> prepare('INSERT INTO balances (hash, balance) VALUES (:hash, :balance)');
+		$dop -> bindValue(':hash', (float)$data['hash'], SQLITE3_FLOAT);
+		$dop -> bindValue(':balance', 'Sophie', SQLITE3_TEXT);
+		$dop -> execute();
+		$dop = $con -> prepare('INSERT INTO balance (hash, balance) VALUES (:hash, :balance)');
+		$dop -> bindValue(':hash', (float)$data['hash'], SQLITE3_FLOAT);
+		$dop -> bindValue(':balance', 0, SQLITE3_INTEGER);
+		$dop -> execute();
 		echo json_encode(['answer' => 'yes']);
 	}
 ?>

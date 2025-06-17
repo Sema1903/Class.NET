@@ -1,4 +1,7 @@
 @media screen and (max-width: 800px) {
+    #back_button{
+        margin-top: 80px
+    }
     body{
         background-color: rgb(76, 102, 97);
     }
@@ -15,7 +18,7 @@
         font-family: "Montserrat", serif;
     }
     button{
-        padding: 1%;
+        padding: 2%;
         background-color: rgb(217, 0, 255);
         font-family: "Montserrat", serif;
         font-size: 17px;
@@ -41,7 +44,7 @@
     input{
         background-color: rgb(217, 0, 255);
         transition: 0.5s;
-        padding: 1%;
+        padding: 2%;
         color: white;
         border-radius: 100px;
         border: 0;
@@ -117,6 +120,9 @@
     }
 }
 @media screen and (min-width: 800px) {
+    #back_button{
+        margin-top: 80px
+    }
     body{
         background-color: rgb(76, 102, 97);
     }

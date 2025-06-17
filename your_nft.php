@@ -10,7 +10,7 @@
 	$hash = $records['hash'];
 	$records = $con -> query('SELECT * from nfts');
 	while($row = $records -> fetchArray(SQLITE3_ASSOC)){
-		if($row['owner'] == $hash){
+		if($row['owner'] == $hash && $row['status'] != 'sale'){
 			array_push($result, ['nft' => $row['nft'], 'creator' => $row['creator'], 'cost' => $row['cost'], 'ip' => $row['token']]);
 		}
 	}

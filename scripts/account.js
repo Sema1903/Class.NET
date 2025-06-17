@@ -1,4 +1,7 @@
 let name_p = document.getElementById('name_p');
+let big_div = document.getElementById('big_div');
+let applouse_button = document.getElementById('applouse_button');
+let main_div2 = document.getElementById('main_div');
 let back_button = document.getElementById('back_button');
 let buy_button = document.getElementById('buy_button');
 let avatar = document.getElementById('avatar');
@@ -11,15 +14,14 @@ let friend_button = document.getElementById('friend_button');
 let reduct_button = document.getElementById('reduct_button');
 let bans_button = document.getElementById('bans_button');
 let url = new URL('http://sema1903.ru/main/your_iceberg.php');
+let friends_h2 = document.getElementById('friends_h2');
+let nft_h2 = document.getElementById('nft_h2');
+let friends = document.getElementById('friends');
 url.search = new URLSearchParams(params)
 fetch(url, {headers: {'Accept': 'application/json'}})
         .then(response => {return response.json()})
         .then(data =>{
-            if(data['balance'] == null){
-                balance.textContent = 'Баланс: 0 ICE'; 
-            }else{
-                balance.textContent = 'Баланс: 0 ICE';
-            }
+            balance.textContent = 'Баланс: ' + data['balance'] + ' 👏';
         })
 url = new URL('http://sema1903.ru/main/account.php');
 url.search = new URLSearchParams(params);
@@ -33,11 +35,25 @@ fetch(url, {headers: {'Accept': 'application/json'}})
         }else{
             about_p.textContent = 'Обо мне: Привет всем! Я использую Class.NET!';
         }
+        let ava = ''
         if(data['avatar'] != ''){
             avatar.src = data['avatar'];
+            ava = data['avatar'];
         }else{
             avatar.src = 'images/unknown.png'; 
+            ava = 'images/unknown.png';
         }
+        avatar.addEventListener('click', () => {
+            let big_avatar = document.createElement('img');
+            big_avatar.className = 'big_file';
+            big_avatar.src = ava;
+            big_div.appendChild(big_avatar);
+            big_div.style.display = 'block';
+            big_div.addEventListener('click', () => {
+                big_avatar.style.display = 'none';
+                big_div.style.display = 'none';
+            })
+        })
 });
 url = new URL('http://sema1903.ru/main/your_friends.php');
 url.search = new URLSearchParams(params);
@@ -102,12 +118,22 @@ fetch(url1, {headers: {'Accept': 'application/json'}})
                 main_div.appendChild(head_div);
                 main_div.appendChild(text_p);
                 main.appendChild(main_div);
-                if (file_name != 'no' && data['type'] == 'image'){
+                if (file_name != 'no' && data[i]['type'] == 'image'){
                     let file = document.createElement('img');
                     file.src = file_name;
                     file.className = 'file';
                     main_div.appendChild(file);
-                }else if(file_name != 'no' && data['type'] == 'video'){
+                    file.addEventListener('click', () => {
+                        file.className = 'big_file';
+                        big_div.appendChild(file);
+                        big_div.style.display = 'block';
+                        big_div.addEventListener('click', () => {
+                            file.className = 'file';
+                            main_div.appendChild(file);
+                            big_div.style.display = 'none';
+                        })
+                    })
+                }else if(file_name != 'no' && data[i]['type'] == 'video'){
                     let file = document.createElement('video');
                     file.src = file_name;
                     file.className = 'file';
@@ -116,14 +142,24 @@ fetch(url1, {headers: {'Accept': 'application/json'}})
                     file.muted = true;
                     file.loop = true;
                     main_div.appendChild(file);
-                }else if(file_name != 'no' && data['type'] == 'audio'){
+                    file.addEventListener('click', () => {
+                        file.className = 'big_file';
+                        big_div.appendChild(file);
+                        big_div.style.display = 'block';
+                        big_div.addEventListener('click', () => {
+                            file.className = 'file';
+                            main_div.appendChild(file);
+                            big_div.style.display = 'none';
+                        })
+                    })
+                }else if(file_name != 'no' && data[i]['type'] == 'audio'){
                     let file = document.createElement('audio');
                     file.src = file_name;
                     file.controls = true;
                     file.loop = true;
                     file.muted = false;
                     main_div.appendChild(file);
-                }else if(file_name != 'no' && data['type'] == 'download'){
+                }else if(file_name != 'no' && data[i]['type'] == 'download'){
                     let file = document.createElement('a');
                     file.href = file_name;
                     file.textContent = 'Скачать файл';
@@ -210,4 +246,33 @@ bans_button.addEventListener('click', ()=>{
     .then(data => {
         bans_button.style.backgroundColor = 'green';
     })
-})
+});
+applouse_button.addEventListener('click', () =>{
+    fetch('http://sema1903.ru/main/applouse.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'id': localStorage.getItem('id2'), 'hash': localStorage.getItem('hash')})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data['answer'] == 'yes'){
+            applouse_button.style.backgroundColor = 'green';
+        }else{
+            applouse_button.style.backgroundColor = 'red';
+        }
+    })
+});
+friends_h2.addEventListener('click', () => {
+    if(friends.style.display != 'block'){
+        friends.style.display = 'block';
+    }else{
+        friends.style.display = 'none';
+    }
+});
+nft_h2.addEventListener('click', () =>{
+    if(nfts.style.display != 'block'){
+        nfts.style.display = 'block';
+    }else{
+        nfts.style.display = 'none';
+    }
+});

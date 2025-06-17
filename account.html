@@ -11,6 +11,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id = 'big_div'>
+        </div>
         <button id = 'back_button'>Назад</button>
         <div id = 'main_div'>
             <h1>Профиль</h1>
@@ -22,11 +24,12 @@
             <button id = 'write_button'>Написать</button>
             <button id = 'friend_button'>Добавить в друзья</button>
             <button id = 'bans_button'>Пожаловаться</button>
+            <button id = 'applouse_button'>👏</button>
         </div>
-        <h2 align = 'center'>Друзья</h2>
+        <h2 align = 'center' id = 'friends_h2'>Друзья</h2>
         <div id = friends>
         </div>
-        <h2 align = 'center'>NFT</h2>
+        <h2 align = 'center' id = 'nft_h2'>NFT</h2>
         <div id = 'nfts'>
         </div>
         <h2 align = 'center'>Публикации</h2>
@@ -34,6 +37,7 @@
         </div>
         <div id = 'popupest'>
         </div>
+        <script src = 'srcipts/base122.js'></script>
         <script src = 'scripts/account.js'></script>
     </body>
 </html>

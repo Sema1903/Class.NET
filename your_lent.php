@@ -1,6 +1,4 @@
 <?php
-	header("Access-Control-Allow-Origin: *");
-	header("Content-Type: application/json");
 	$con = new SQLite3('exercises.db');
 	$result = [];
 	$autor = '';
@@ -10,10 +8,9 @@
 	$records = $dop -> execute() -> fetchArray(SQLITE3_ASSOC);
 	$autor = $records['name'];
 	$avatar = $records['avatar'];
-	$hash = $records['hash'];
 	$records1 = $con -> query('SELECT * FROM lent');
 	while($row = $records1 -> fetchArray(SQLITE3_ASSOC)){
-		if((float)$row['id'] === (float)$hash){
+		if($row['id'] == $_GET['id']){
 			array_push($result, ['number' => $row['ip'], 'autor' => $autor, 'text' => $row['text'], 'avatar' => $avatar, 'file' => $row['file'], 'type' => $row['type'], 'likes' => $row['likes']]);
 		}
 	}

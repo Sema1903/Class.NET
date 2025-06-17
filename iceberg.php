@@ -1,9 +1,11 @@
 <?php
-	header("Access-Control-Allow-Origin: *");
-	header("Content-Type: application/json");
-	header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-	$con = new SQLite3('exercises.db');
-	$dop = $con -> prepare('SELECT * FROM balances WHERE hash = :hash');
-	$records = $dop -> bindValue(':hash', (float)$_GET['hash'], SQLITE3_FLOAT) -> execute() -> fetchArray(SQLITE3_ASSOC);
-	echo json_encode(['balance' => $records['balance']]);
+    $con = new SQLite3('exercises.db');
+    $records = $con -> query('SELECT * FROM balance');
+    $result = ['balance' => 0];
+    while($row = $records -> fetchArray(SQLITE3_ASSOC)){
+        if($row['hash'] == (float)$_GET['hash']){
+            $result['balance'] = $row['balance'];
+        }
+    }
+    echo json_encode($result);
 ?>

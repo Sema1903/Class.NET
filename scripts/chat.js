@@ -2,7 +2,9 @@ let chats_button = document.getElementById('chats_button');
 let games_button = document.getElementById('games_button');
 let surch_button = document.getElementById('surch_button');
 let surch_input = document.getElementById('surch_input');
+let mainest = document.getElementById('mainest');
 let main = document.getElementById('main');
+let gif = document.getElementById('gif');
 let params = {hash: localStorage.getItem('hash')};
     let url = new URL('http://sema1903.ru/main/chat.php');
     url.search = new URLSearchParams(params);
@@ -56,11 +58,71 @@ surch_button.addEventListener('click', ()=>{
     fetch(url, {headers: {'Accept': 'application/json'}})
         .then(response =>{return response.json()})
         .then(data => {
-            if(data['answer'] == 'no'){
-                alert('Такого ID не найдено');
+            let people_div = document.createElement('div');
+            people_div.id = 'people_div';
+            if(data.length == 0){
+                let people_p = document.createElement('p');
+                people_p.textContent = 'По этому ID и имени никого не найдено';
+                people_p.style.color = 'white';
+                people_div.appendChild(people_p);
             }else{
-                localStorage.setItem('id2', surch_input.value);
-                localStorage.setItem('action', 'chat');
-                window.location.href = 'account.html';
+                for(let i = 0; i < data.length; i++){
+                    let man_div = document.createElement('div');
+                    man_div.className = 'man_div';
+                    let man_avatar = document.createElement('img');
+                    man_avatar.className = 'man_avatar';
+                    if(data[i]['avatar'] != ''){
+                        man_avatar.src = data[i]['avatar'];
+                    }else{
+                        man_avatar.src = 'images/unknown.png';
+                    }
+                    let man_name = document.createElement('p');
+                    man_name.className = 'man_name';
+                    man_name.textContent = data[i]['name'];
+                    man_div.appendChild(man_avatar);
+                    man_div.appendChild(man_name);
+                    people_div.appendChild(man_div);
+                    man_div.addEventListener('click', () => {
+                        localStorage.setItem('id2', data[i]['id']);
+                        window.location.href = 'account.html';
+                    })
+                }
             }
-})})
+            mainest.appendChild(people_div);
+            people_div.addEventListener('click', () => {
+                people_div.style.display = 'none';
+            })
+})});
+gif.addEventListener('click', () => {
+    if(localStorage.getItem('hash') != null){
+        fetch('http://sema1903.ru/main/gif.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({'hash': localStorage.getItem('hash')})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data['answer'] == 'yes'){
+                let timer;
+                let turn = 0;
+                function turnOn() {
+                  timer = setInterval(turnFan, 200);
+                  let gif = document.getElementById("on");
+                  gif.disabled = true;
+                }
+                
+                function turnOff() {
+                  clearInterval(timer);
+                  let gif = document.getElementById("on");
+                  gif.disabled = false;
+                }
+                
+                function turnFan() {
+                  let gif = document.getElementById("myFan");
+                  turn += 60;
+                  gif.style.transform = "rotate("+ (turn % 360) +"deg)"
+                }
+            }
+        })
+    }
+})
