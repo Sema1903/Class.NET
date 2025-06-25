@@ -1,9 +1,24 @@
 @media screen and (max-width: 700px) {
     button{
         color: black;
+        margin-bottom: 5px;
+        width: 80%;
     }
     body{
         background-color: rgb(76, 102, 97);
+    }
+    #money{
+        background-color: rgba(54, 54, 54, 0.457);
+        border-radius: 10px;
+        position: fixed;
+        padding: 2.5%;
+        right: 5%;
+        left: 5%;
+        top: 40%;
+        font-size: 20px;
+        display: none;
+        transition: 0.5s;
+        z-index: 10000000;
     }
     #main_div{
         margin-top: 50px;
@@ -30,6 +45,7 @@
         padding: 15px;
         font-family: "Montserrat", serif;
         margin-left: 20px;
+        width: 20%;
     }
     #back_button:hover{
         background-color: rgb(134, 134, 134);
@@ -216,6 +232,18 @@
     }
 }
 @media screen and (min-width: 700px) {
+    #money{
+        background-color: rgba(54, 54, 54, 0.457);
+        border-radius: 10px;
+        position: fixed;
+        padding: 2.5%;
+        right: 30%;
+        left: 30%;
+        top: 50%;
+        display: none;
+        transition: 0.5s;
+        z-index: 10000000;
+    }
     body{
         background-color: rgb(76, 102, 97);
     }

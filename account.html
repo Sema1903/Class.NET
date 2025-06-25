@@ -11,19 +11,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id = 'money'>
+        </div>
         <div id = 'big_div'>
         </div>
         <button id = 'back_button'>Назад</button>
         <div id = 'main_div'>
             <h1>Профиль</h1>
-            <img id = 'avatar'>
+            <img id = 'avatar' align = 'right'>
             <p id = 'name_p'>Имя:</p>
             <p id = 'about_p'>Обо мне:</p>
             <p id = 'id_p'>ID:</p>
+            <p id = 'love_p'>Статус отношений: </p>
             <p id = 'balance'>Баланс: </p>
             <button id = 'write_button'>Написать</button>
             <button id = 'friend_button'>Добавить в друзья</button>
             <button id = 'bans_button'>Пожаловаться</button>
+            <button id = 'love_button'>Встречаться</button>
             <button id = 'applouse_button'>👏</button>
         </div>
         <h2 align = 'center' id = 'friends_h2'>Друзья</h2>
@@ -37,7 +41,15 @@
         </div>
         <div id = 'popupest'>
         </div>
-        <script src = 'srcipts/base122.js'></script>
-        <script src = 'scripts/account.js'></script>
+        <script src = 'scripts/account/data_of_account.js'></script>
+        <script src = 'scripts/account/love.js'></script>
+        <script src = 'scripts/account/your_balance.js'></script>
+        <script src = 'scripts/account/your_friends.js'></script>
+        <script src = 'scripts/account/your_lent.js'></script>
+        <script src = 'scripts/account/your_nft.js'></script>
+        <script src = 'scripts/account/friend.js'></script>
+        <script src = 'scripts/account/bans.js'></script>
+        <script src = 'scripts/account/applouse.js'></script>
+        <script src = 'scripts/account/account.js'></script>
     </body>
 </html>

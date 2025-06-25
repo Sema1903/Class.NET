@@ -7,7 +7,7 @@
     }
     #h1_div{
         color:aliceblue;
-        background: linear-gradient(rgb(50, 67, 64), rgb(76, 102, 97));
+        background: rgb(76, 102, 97);
         padding: 1%;
         position: relative;
     }
@@ -16,20 +16,25 @@
         border-radius: 30px;
         margin-top: 5%;
         margin-left: 2%;
+        display: none;
     }
     #h1{
         position: absolute;
-        left: 35%;
+        left: 15%;
         top: 2%;
         font-size: 40px;
         font-family: "Montserrat", serif;
+        justify-content: center;
+        align-items: center;
     }
     #h2{
         position: absolute;
-        left: 35%;
-        top: 35%;
+        left: 15%;
+        top: 600%;
         font-size: 30px;
         font-family: "Montserrat", serif;
+        justify-content: center;
+        align-items: center;
     }
     .main_div{
         position: relative;
@@ -151,7 +156,7 @@
     #account_button{
         padding: 1%;
         width: 50%;
-        margin-top: 10%;
+        margin-top: 40%;
         margin-left: 60%;
         background-color: rgb(76, 102, 97);
         border: 0px;
@@ -207,7 +212,7 @@
     }
     #h1_div{
         color:aliceblue;
-        background: linear-gradient(rgb(50, 67, 64), rgb(76, 102, 97));
+        background: rgb(76, 102, 97);
         padding: 1%;
         position: relative;
     }

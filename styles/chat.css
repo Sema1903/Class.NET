@@ -7,7 +7,7 @@
     }
     #h1_div{
         color:aliceblue;
-        background: linear-gradient(rgb(50, 67, 64), rgb(76, 102, 97));
+        background: rgb(76, 102, 97);
         padding: 1%;
         position: relative;
     }
@@ -16,20 +16,25 @@
         border-radius: 30px;
         margin-top: 5%;
         margin-left: 2%;
+        display: none;
     }
     #h1{
         position: absolute;
-        left: 35%;
+        left: 15%;
         top: 2%;
         font-size: 40px;
         font-family: "Montserrat", serif;
+        justify-content: center;
+        align-items: center;
     }
     #h2{
         position: absolute;
-        left: 35%;
-        top: 35%;
+        left: 15%;
+        top: 600%;
         font-size: 30px;
         font-family: "Montserrat", serif;
+        justify-content: center;
+        align-items: center;
     }
     .main_div{
         position: relative;
@@ -123,7 +128,7 @@
         color: black;
     }
     #main{
-        margin-top: 35%;
+        margin-top: 65%;
         margin-bottom: 30%;
     }
     #chat_button{
@@ -164,7 +169,7 @@
         font-family: "Montserrat", serif;
         font-size: 20px;
         position: absolute;
-        top: 33%;
+        top: 23%;
         left: 5%;
         z-index: 10;   
     }
@@ -184,7 +189,7 @@
         border-radius: 100px;
         border: 0;
         position: absolute;
-        top: 33%;
+        top: 23%;
         left: 75%;
         z-index: 10;
         color: white;
@@ -243,7 +248,7 @@
     }
     #h1_div{
         color:aliceblue;
-        background: linear-gradient(rgb(50, 67, 64), rgb(76, 102, 97));
+        background: rgb(76, 102, 97);
         padding: 1%;
         position: relative;
     }
