@@ -4,10 +4,9 @@
     $data = json_decode($input, true);
     $con = new SQLite3('exercises.db');
     $records = $con -> query('SELECT * FROM loves');
+    $first = 0.0;
     while($row = $records -> fetchArray(SQLITE3_ASSOC)){
-        if($row['first'] == (float)$data['hash']){
-            $first = $row['first'];
-        }else if($row['second'] == (float)$data['hash']){
+        if($row['first'] == (float)$data['hash'] || $row['second'] == (float)$data['hash']){
             $first = $row['first'];
         }
     }

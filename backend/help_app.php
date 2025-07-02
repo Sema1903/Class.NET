@@ -9,6 +9,7 @@
 //    $con -> exec('DROP TABLE balance');
 //    $con -> exec('DROP TABLE gif');
 //    $con -> exec('DROP TABLE loves');
+//    $con -> exec('DROP TABLE clubs');
 //  $con -> exec('CREATE TABLE balance (hash FLOAT, balance INT)');
 //	$con -> exec('CREATE TABLE users (name TEXT, email TEXT, password INT, avatar TEXT, id TEXT, about TEXT, hash INT, friends TEXT, bans INT, status TEXT)');
 //	$con -> exec('CREATE TABLE lent(id TEXT, text TEXT, file TEXT, ip INT, likes INT, type TEXT)');
@@ -17,18 +18,7 @@
 //	$con -> exec('CREATE TABLE nfts (token FLOAT, owner FLOAT, creator TEXT, cost INT, nft TEXT, status TEXT);');
 //  $con -> exec('CREATE TABLE gif (hash FLOAT)');
 //  $con -> exec('CREATE TABLE loves (first FLOAT, second FLOAT, status TEXT)');
+//    $con -> exec('CREATE TABLE clubs (ip INT, name TEXT, president FLOAT, members TEXT, avatar TEXT, id TEXT, about TEXT)');
 //con.execute('INSERT INTO users(name, email, password, avatar, id, about, hash, friends, bans, status) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ('Sophie', 'krismironova04@mail.ru', 1.0672147442793281e+26, '', 'Sophie', 'Твой друг и помощник в социальной сети Друзья 2.0', 6.574042824760661e+28, '', 0, 'active'))*/
 
-/*    $records = $con -> query('SELECT * FROM loves');
-    while($row = $records -> fetchArray(SQLITE3_ASSOC)){
-        $dop = $con -> prepare('SELECT * FROM users WHERE hash = :hash');
-        $dop -> bindValue(':hash', $row['first'], SQLITE3_FLOAT);
-        $records2 = $dop -> execute() -> fetchArray(SQLITE3_ASSOC);
-        echo $records2['id'] . ' ';
-        $dop = $con -> prepare('SELECT * FROM users WHERE hash = :hash');
-        $dop -> bindValue(':hash', $row['second'], SQLITE3_FLOAT);
-        $records2 = $dop -> execute() -> fetchArray(SQLITE3_ASSOC);
-        echo $records2['id'] . ' ';
-        echo $row['status'] . '<br>';
-    }*/
 ?>

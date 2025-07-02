@@ -1,5 +1,7 @@
 //elements
 let love_p = document.getElementById('love_p');
+let club_p = document.getElementById('club_p');
+let club_button = document.getElementById('club_button');
 let name_p = document.getElementById('name_p');
 let big_div = document.getElementById('big_div');
 let main_div2 = document.getElementById('main_div');
@@ -75,6 +77,8 @@ love_status();
 
 my_lent();
 
+club_status();
+
 iceberg();
 
 my_friends();
@@ -82,6 +86,8 @@ my_friends();
 my_nft();
 
 back_button.addEventListener('click', to_chats);
+
+club_button.addEventListener('click', new_club);
 
 buy_button.addEventListener('click', good_buy);
 

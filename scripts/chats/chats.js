@@ -24,7 +24,7 @@ async function to_games(){
     window.location.href = 'iceberg.html';
 }
 async function scrolling(){
-    if(window.pageYOffset - scrol > 100){
+    if(window.pageYOffset - scrol > 50){
         i = scr(i);
         scrol = window.pageYOffset;
     }
@@ -50,6 +50,7 @@ avatar();
 
 unread();
 
+i = scr(i);
 i = scr(i);
 
 games_button.addEventListener('click', to_games);

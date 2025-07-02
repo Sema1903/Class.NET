@@ -31,6 +31,28 @@ async function yes_love(){
             }
         })
 }
+async function yes_married(){
+    fetch('http://sema1903.ru/main/backend/yes_married.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'id': localStorage.getItem('id3'), 'hash': localStorage.getItem('hash')})
+    })
+        .then(res => res.json())
+        .then(data => {
+            
+        })
+}
+async function fall_married(){
+    fetch('http://sema1903.ru/main/backend/break_married.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'id': localStorage.getItem('id3'), 'hash': localStorage.getItem('hash')})
+    })
+        .then(res => res.json())
+        .then(data => {
+            
+        })
+}
 async function write(){
     main.textContent = '';
     let params = {id: localStorage.getItem('hash') + ' ' + localStorage.getItem('id3')};
@@ -149,11 +171,23 @@ async function write(){
                         file_img.src = './images/bans.gif';
                         main_div.appendChild(file_img);
                     }
-                    if(data['messages'][i]['special'] == 'new_love' && data['messages'][i]['my'] == 'no'){
+                    if(data['messages'][i]['special'] == 'new_love' && data['messages'][i]['autor_id'] == localStorage.getItem('id3')){
                         let yes_love_button = document.createElement('button');
                         yes_love_button.textContent = 'Встречаться';
                         yes_love_button.addEventListener('click', yes_love);
                         main_div.appendChild(yes_love_button);
+                    }
+                    if(data['messages'][i]['special'] == 'married' && data['messages'][i]['autor_id'] == localStorage.getItem('id3')){
+                        let yes_button = document.createElement('button');
+                        yes_button.textContent = 'Согласиться!';
+                        yes_button.addEventListener('click', yes_married);
+                        main_div.appendChild(yes_button);
+                    }
+                    if(data['messages'][i]['special'] == 'fall_married' && data['messages'][i]['autor_id'] == localStorage.getItem('id3')){
+                        let yes_button = document.createElement('button');
+                        yes_button.textContent = 'Развестись';
+                        yes_button.addEventListener('click', fall_married);
+                        main_div.appendChild(yes_button);
                     }
                     main.appendChild(main_div);
                     window.scrollBy(0, innerHeight);

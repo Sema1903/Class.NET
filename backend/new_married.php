@@ -3,25 +3,21 @@
     $input = file_get_contents('php://input');
     $data = json_decode($input, true);
     $con = new SQLite3('exercises.db');
-    $hash = 0.0;
     $id = '';
-    $first = 0.0;
-    $dop -> prepare('SELECT * FROM users WHERE id = :id');
-    $dop -> bindValue(':id', $data['id'], SQLITE3_TEXT);
-    $records = $dop -> execute() -> fetchArray(SQLITE3_ASSOC);
-    $hash = $records['hash'];
+    $avatar = '';
     $dop = $con -> prepare('SELECT * FROM users WHERE hash = :hash');
     $dop -> bindValue(':hash', (float)$data['hash'], SQLITE3_FLOAT);
     $records = $dop -> execute() -> fetchArray(SQLITE3_ASSOC);
     $id = $records['id'];
-    $records = $con -> query('SELECT * FROM loves');
-    while($row = $records -> fetchArray(SQLITE3_ASSOC)){
-        if($row['first'] == $hash || $row['second'] == $hash){
-            $first = $row['first'];
-        }
-    }
-    $dop = $con -> prepare('UPDATE loves SET status = :status WHERE first = :first');
-    $dop -> bindValue(':status', 'married', SQLITE3_TEXT);
-    $dop -> bindValue(':first', $first, SQLITE3_FLOAT);
+    $avatar = $records['avatar'];
+    $dop = $con -> prepare('INSERT INTO chats (autor_id, giver_id, text, file, read, special, type) VALUES (:autor_id, :giver_id, :text, :file, :read, :special, :type)'); 
+    $dop -> bindValue(':autor_id', $id, SQLITE3_TEXT);
+    $dop -> bindValue(':giver_id', $data['id'], SQLITE3_TEXT);
+    $dop -> bindValue(':text', 'Пользователь ' . $id . ' сделал тебе предложение 💍 Это очень ответственное решение!', SQLITE3_TEXT);
+    $dop -> bindValue(':file', $avatar, SQLITE3_TEXT);
+    $dop -> bindValue(':read', 'no', SQLITE3_TEXT);
+    $dop -> bindValue(':special', 'married', SQLITE3_TEXT);
+    $dop -> bindValue(':type', 'image', SQLITE3_TEXT);
     $dop -> execute();
+    echo json_encode(['answer' => 'yes']);
 ?>
